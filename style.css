@@ -16,7 +16,9 @@
 --cor-contraste: #1e293b;
 --cor-botao: #151428;
 }
-
+.tema-escuro a {
+  color: var(--cor-secundaria);
+}
 header { 
   backgraund-color: #e1d1c6
   color: #795138;
