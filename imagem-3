@@ -1,0 +1,1057 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.4",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let r=e.getAttribute("data-rocket-src");if(r&&0!==r.indexOf("data:")){0===r.indexOf("//")&&(r=location.protocol+r);try{let i=new URL(r).origin;i!==location.origin&&t.push({src:i,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(n){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._pendingWebpackRequests(this),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){if(await this._littleBreath(),!0===t.noModule&&"noModule"in HTMLScriptElement.prototype){t.setAttribute("data-rocket-status","skipped");return}return new Promise(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(){let t={};function e(e,r){!function e(r){!t[r]&&(t[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.remove.apply(r,arguments)});function i(e){return t[r].eventsToRewrite.indexOf(e)>=0?"rocket-"+e:e}}(e),t[e].eventsToRewrite.push(r)}function r(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}e(document,"DOMContentLoaded"),e(window,"DOMContentLoaded"),e(window,"load"),e(window,"pageshow"),e(document,"readystatechange"),r(document,"onreadystatechange"),r(window,"onload"),r(window,"onpageshow")}_delayJQueryReady(t){let e;function r(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}function i(i){if(i&&i.fn&&!t.allJQueries.includes(i)){i.fn.ready=i.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(i):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(i)),i([])};let n=i.fn.on;i.fn.on=i.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=r(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{let e=arguments[0][t];delete arguments[0][t],arguments[0][r(t)]=e})),n.apply(this,arguments),this},t.allJQueries.push(i)}e=i}i(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){i(t)}})}async _pendingWebpackRequests(t){let e=document.querySelector("script[data-webpack]");async function r(){return new Promise(t=>{e.addEventListener("load",t),e.addEventListener("error",t)})}e&&(await r(),await t._requestAnimFrame(),await t._pendingWebpackRequests(t))}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v21.5 (Yoast SEO v21.5) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Como aumentar a produtividade nos estudos - Planejativo</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Montserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CLato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CLato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CLato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap" /></noscript>
+	<meta name="description" content="Aumentar a produtividade nos estudos para o ENEM pode ser um grande desafio, não é mesmo? Aprenda dicas que ajudam a melhorar seu rendimento." />
+	<link rel="canonical" href="https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/" />
+	<meta property="og:locale" content="pt_BR" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Como aumentar a produtividade nos estudos" />
+	<meta property="og:description" content="Aumentar a produtividade nos estudos para o ENEM pode ser um grande desafio, não é mesmo? Aprenda dicas que ajudam a melhorar seu rendimento." />
+	<meta property="og:url" content="https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/" />
+	<meta property="og:site_name" content="Planejativo" />
+	<meta property="article:publisher" content="https://facebook.com/planejativo" />
+	<meta property="article:published_time" content="2023-04-10T13:45:08+00:00" />
+	<meta property="article:modified_time" content="2026-07-10T18:37:44+00:00" />
+	<meta property="og:image" content="https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4.png" />
+	<meta property="og:image:width" content="1536" />
+	<meta property="og:image:height" content="864" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="author" content="Planejativo Marketing" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@planejativo" />
+	<meta name="twitter:site" content="@planejativo" />
+	<meta name="twitter:label1" content="Escrito por" />
+	<meta name="twitter:data1" content="Planejativo Marketing" />
+	<meta name="twitter:label2" content="Est. tempo de leitura" />
+	<meta name="twitter:data2" content="7 minutos" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/#article","isPartOf":{"@id":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/"},"author":{"name":"Planejativo Marketing","@id":"https://planejativo.com/#/schema/person/5531fe080945dad7b869a2af34d6971a"},"headline":"Como aumentar a produtividade nos estudos","datePublished":"2023-04-10T13:45:08+00:00","dateModified":"2026-07-10T18:37:44+00:00","mainEntityOfPage":{"@id":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/"},"wordCount":1247,"publisher":{"@id":"https://planejativo.com/#organization"},"image":{"@id":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/#primaryimage"},"thumbnailUrl":"https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4.png","keywords":["cronograma de estudos","manter o foco nos estudos","Planejamento de estudos","Produtividade nos estudos","técnicas de estudo"],"articleSection":["Produtividade"],"inLanguage":"pt-BR"},{"@type":"WebPage","@id":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/","url":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/","name":"Como aumentar a produtividade nos estudos - Planejativo","isPartOf":{"@id":"https://planejativo.com/#website"},"primaryImageOfPage":{"@id":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/#primaryimage"},"image":{"@id":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/#primaryimage"},"thumbnailUrl":"https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4.png","datePublished":"2023-04-10T13:45:08+00:00","dateModified":"2026-07-10T18:37:44+00:00","description":"Aumentar a produtividade nos estudos para o ENEM pode ser um grande desafio, não é mesmo? Aprenda dicas que ajudam a melhorar seu rendimento.","breadcrumb":{"@id":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/#breadcrumb"},"inLanguage":"pt-BR","potentialAction":[{"@type":"ReadAction","target":["https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/"]}]},{"@type":"ImageObject","inLanguage":"pt-BR","@id":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/#primaryimage","url":"https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4.png","contentUrl":"https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4.png","width":1536,"height":864},{"@type":"BreadcrumbList","@id":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://planejativo.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://planejativo.com/blog/"},{"@type":"ListItem","position":3,"name":"Como aumentar a produtividade nos estudos"}]},{"@type":"WebSite","@id":"https://planejativo.com/#website","url":"https://planejativo.com/","name":"Planejativo","description":"Plano de estudos para o ENEM","publisher":{"@id":"https://planejativo.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://planejativo.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"pt-BR"},{"@type":["Organization","Place","EducationalOrganization"],"@id":"https://planejativo.com/#organization","name":"Planejativo","url":"https://planejativo.com/","logo":{"@id":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/#local-main-organization-logo"},"image":{"@id":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/#local-main-organization-logo"},"sameAs":["https://facebook.com/planejativo","https://twitter.com/planejativo"],"address":{"@id":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/#local-main-place-address"},"geo":{"@type":"GeoCoordinates","latitude":"-5.832462415495039","longitude":"-35.205344377137244"},"telephone":["84 8156-3631"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"17:00"}],"vatID":"37.950.639/0001-48"},{"@type":"Person","@id":"https://planejativo.com/#/schema/person/5531fe080945dad7b869a2af34d6971a","name":"Planejativo Marketing","image":{"@type":"ImageObject","inLanguage":"pt-BR","@id":"https://planejativo.com/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/5dcbd6c306f716fe8ea682c25460a393?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/5dcbd6c306f716fe8ea682c25460a393?s=96&d=mm&r=g","caption":"Planejativo Marketing"},"url":"https://planejativo.com/author/mktplanejativo/"},{"@type":"PostalAddress","@id":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/#local-main-place-address","streetAddress":"Av. Cap. Mor Gouveia, S/N, Lagoa Nova","addressLocality":"Natal","postalCode":"59078-970","addressRegion":"RN","addressCountry":"BR"},{"@type":"ImageObject","inLanguage":"pt-BR","@id":"https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/#local-main-organization-logo","url":"https://static.planejativo.com/wp-content/uploads/2019/05/planejativo-logo2.png","contentUrl":"https://static.planejativo.com/wp-content/uploads/2019/05/planejativo-logo2.png","width":620,"height":113,"caption":"Planejativo"}]}</script>
+	<meta name="geo.placename" content="Natal" />
+	<meta name="geo.position" content="-5.832462415495039;-35.205344377137244" />
+	<meta name="geo.region" content="Brasil" />
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//static.planejativo.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link href='https://static.planejativo.com' rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Feed para Planejativo &raquo;" href="https://planejativo.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para Planejativo &raquo;" href="https://planejativo.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para Planejativo &raquo; Como aumentar a produtividade nos estudos" href="https://planejativo.com/como-aumentar-a-produtividade-nos-estudos/feed/" />
+<style id='wp-emoji-styles-inline-css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://static.planejativo.com/wp-includes/css/dist/block-library/style.min.css?ver=6.6.9' media='all' />
+<style id='classic-theme-styles-inline-css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" rel='stylesheet' id='cookie-law-info-css' href='https://static.planejativo.com/wp-content/cache/min/1/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=1787749678' media='all' />
+<link data-minify="1" rel='stylesheet' id='cookie-law-info-gdpr-css' href='https://static.planejativo.com/wp-content/cache/min/1/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=1787749678' media='all' />
+<link rel='stylesheet' id='hello-elementor-css' href='https://static.planejativo.com/wp-content/themes/hello-elementor/style.min.css?ver=3.1.1' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css' href='https://static.planejativo.com/wp-content/themes/hello-elementor/theme.min.css?ver=3.1.1' media='all' />
+<link rel='stylesheet' id='hello-elementor-header-footer-css' href='https://static.planejativo.com/wp-content/themes/hello-elementor/header-footer.min.css?ver=3.1.1' media='all' />
+<link rel='stylesheet' id='elementor-frontend-legacy-css' href='https://static.planejativo.com/wp-content/plugins/elementor/assets/css/frontend-legacy.min.css?ver=3.18.3' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://static.planejativo.com/wp-content/plugins/elementor/assets/css/frontend-lite.min.css?ver=3.18.3' media='all' />
+<style id='elementor-frontend-inline-css'>
+.elementor-3040 .elementor-element.elementor-element-7f27504b:not(.elementor-motion-effects-element-type-background), .elementor-3040 .elementor-element.elementor-element-7f27504b > .elementor-motion-effects-container > .elementor-motion-effects-layer{background-image:var(--wpr-bg-e8a30a53-c8e2-4bd7-8536-d63a7efbb933);}
+</style>
+<link rel='stylesheet' id='swiper-css' href='https://static.planejativo.com/wp-content/plugins/elementor/assets/lib/swiper/css/swiper.min.css?ver=5.3.6' media='all' />
+<link rel='stylesheet' id='elementor-post-1857-css' href='https://static.planejativo.com/wp-content/uploads/elementor/css/post-1857.css?ver=1746470118' media='all' />
+<link rel='stylesheet' id='elementor-pro-css' href='https://static.planejativo.com/wp-content/plugins/elementor-pro/assets/css/frontend-lite.min.css?ver=3.17.1' media='all' />
+<link data-minify="1" rel='stylesheet' id='font-awesome-5-all-css' href='https://static.planejativo.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=1787749678' media='all' />
+<link rel='stylesheet' id='font-awesome-4-shim-css' href='https://static.planejativo.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.18.3' media='all' />
+<link rel='stylesheet' id='elementor-global-css' href='https://static.planejativo.com/wp-content/uploads/elementor/css/global.css?ver=1746470186' media='all' />
+<link rel='stylesheet' id='elementor-post-3044-css' href='https://static.planejativo.com/wp-content/uploads/elementor/css/post-3044.css?ver=1746470125' media='all' />
+<link rel='stylesheet' id='elementor-post-3051-css' href='https://static.planejativo.com/wp-content/uploads/elementor/css/post-3051.css?ver=1746470125' media='all' />
+<link rel='stylesheet' id='elementor-post-3040-css' href='https://static.planejativo.com/wp-content/uploads/elementor/css/post-3040.css?ver=1746470164' media='all' />
+<link data-minify="1" rel='stylesheet' id='hello-elementor-child-style-css' href='https://static.planejativo.com/wp-content/cache/min/1/wp-content/themes/hello-theme-child-master/style.css?ver=1787749678' media='all' />
+<style id='rocket-lazyload-inline-css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:var(--wpr-bg-01857f80-1ff1-4c5b-a4aa-6f37ef06df8e) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" defer></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"1","custom_integration":"","triggerDomRefresh":"","secure_cookies":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#FFF","border":"#b1a6a6c2","border_on":"","button_1_button_colour":"#61a229","button_1_button_hover":"#4e8221","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#333","button_2_button_hover":"#292929","button_2_link_colour":"#444","button_2_as_button":"","button_2_hidebar":"","button_3_button_colour":"#dedfe0","button_3_button_hover":"#b2b2b3","button_3_link_colour":"#333333","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#dedfe0","button_4_button_hover":"#b2b2b3","button_4_link_colour":"#333333","button_4_as_button":"1","button_7_button_colour":"#1e73be","button_7_button_hover":"#185c98","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"1","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#333333","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"https:\/\/planejativo.com\/wp-admin\/admin-ajax.php"};
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://static.planejativo.com/wp-content/cache/min/1/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=1787749678" id="cookie-law-info-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.18.3" id="font-awesome-4-shim-js" defer></script>
+<link rel="https://api.w.org/" href="https://planejativo.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://planejativo.com/wp-json/wp/v2/posts/11941" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://planejativo.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.6.9" />
+<link rel='shortlink' href='https://planejativo.com/?p=11941' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://planejativo.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fplanejativo.com%2Fcomo-aumentar-a-produtividade-nos-estudos%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://planejativo.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fplanejativo.com%2Fcomo-aumentar-a-produtividade-nos-estudos%2F&#038;format=xml" />
+<meta name="description" content="Aumentar a produtividade nos estudos para o ENEM pode ser um grande desafio, não é mesmo? Mas nada está perdido: juntamos aqui dicas para te ajudar no seu foco e concentração.">
+<meta name="generator" content="Elementor 3.18.3; features: e_optimized_assets_loading, e_optimized_css_loading, e_font_icon_svg, block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-external, google_font-enabled, font_display-auto">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="rocketlazyloadscript" async data-rocket-src='https://www.googletagmanager.com/gtag/js?id=GTM-M9LKKZ2'></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GTM-M9LKKZ2');
+</script>
+
+			<meta name="theme-color" content="#F5F5F5">
+			<link rel="icon" href="https://static.planejativo.com/wp-content/uploads/2019/05/p4-100x100.png" sizes="32x32" />
+<link rel="icon" href="https://static.planejativo.com/wp-content/uploads/2019/05/p4-300x300.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://static.planejativo.com/wp-content/uploads/2019/05/p4-300x300.png" />
+<meta name="msapplication-TileImage" content="https://static.planejativo.com/wp-content/uploads/2019/05/p4-300x300.png" />
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><style id="wpr-lazyload-bg"></style><style id="wpr-lazyload-bg-exclusion"></style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">:root{--wpr-bg-6517f46d-45f7-45ed-9857-d5f940450fc8: url('../../../../../../../../../../../../../plugins/cookie-law-info/legacy/images/td_back.gif');}:root{--wpr-bg-e8a30a53-c8e2-4bd7-8536-d63a7efbb933: url('https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4.png');}:root{--wpr-bg-01857f80-1ff1-4c5b-a4aa-6f37ef06df8e: url('https://static.planejativo.com/wp-content/plugins/wp-rocket/assets/img/youtube.png');}</style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = [{"selector":"table.cookielawinfo-winter tbody td,table.cookielawinfo-winter tbody th","style":":root{--wpr-bg-6517f46d-45f7-45ed-9857-d5f940450fc8: url('..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/plugins\/cookie-law-info\/legacy\/images\/td_back.gif');}","hash":"6517f46d-45f7-45ed-9857-d5f940450fc8"},{"selector":".elementor-3040 .elementor-element.elementor-element-7f27504b:not(.elementor-motion-effects-element-type-background), .elementor-3040 .elementor-element.elementor-element-7f27504b > .elementor-motion-effects-container > .elementor-motion-effects-layer","style":":root{--wpr-bg-e8a30a53-c8e2-4bd7-8536-d63a7efbb933: url('https:\/\/static.planejativo.com\/wp-content\/uploads\/2023\/04\/Design-sem-nome4.png');}","hash":"e8a30a53-c8e2-4bd7-8536-d63a7efbb933"},{"selector":".rll-youtube-player .play","style":":root{--wpr-bg-01857f80-1ff1-4c5b-a4aa-6f37ef06df8e: url('https:\/\/static.planejativo.com\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png');}","hash":"01857f80-1ff1-4c5b-a4aa-6f37ef06df8e"}]; const rocket_excluded_pairs = [];</script></head>
+<body class="post-template-default single single-post postid-11941 single-format-standard elementor-default elementor-kit-1857 elementor-page-3040">
+
+
+<a class="skip-link screen-reader-text" href="#content">Ir para o conteúdo</a>
+
+		<nav data-elementor-type="header" data-elementor-id="3044" class="elementor elementor-3044 elementor-location-header" data-elementor-post-type="elementor_library">
+					<div class="elementor-section-wrap">
+								<nav class="elementor-section elementor-top-section elementor-element elementor-element-32c21f59 elementor-section-height-min-height elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="32c21f59" data-element_type="section" data-settings="{&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;],&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-6b847292" data-id="6b847292" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-57d5aa0d elementor-widget elementor-widget-image" data-id="57d5aa0d" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.18.0 - 20-12-2023 */
+.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>					<div class="elementor-image">
+													<a href="https://planejativo.com">
+							<img width="620" height="113" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20620%20113'%3E%3C/svg%3E" class="attachment-full size-full wp-image-96" alt="" data-lazy-srcset="https://static.planejativo.com/wp-content/uploads/2019/05/planejativo-logo2.png 620w, https://static.planejativo.com/wp-content/uploads/2019/05/planejativo-logo2-300x55.png 300w, https://static.planejativo.com/wp-content/uploads/2019/05/planejativo-logo2-100x18.png 100w" data-lazy-sizes="(max-width: 620px) 100vw, 620px" data-lazy-src="https://static.planejativo.com/wp-content/uploads/2019/05/planejativo-logo2.png" /><noscript><img loading="lazy" width="620" height="113" src="https://static.planejativo.com/wp-content/uploads/2019/05/planejativo-logo2.png" class="attachment-full size-full wp-image-96" alt="" srcset="https://static.planejativo.com/wp-content/uploads/2019/05/planejativo-logo2.png 620w, https://static.planejativo.com/wp-content/uploads/2019/05/planejativo-logo2-300x55.png 300w, https://static.planejativo.com/wp-content/uploads/2019/05/planejativo-logo2-100x18.png 100w" sizes="(max-width: 620px) 100vw, 620px" /></noscript>								</a>
+														</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-f65d2b8" data-id="f65d2b8" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-76640e72 elementor-nav-menu__align-right elementor-nav-menu--stretch elementor-nav-menu__text-align-center elementor-nav-menu--dropdown-tablet elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="76640e72" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg class=\&quot;e-font-icon-svg e-fas-angle-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;layout&quot;:&quot;horizontal&quot;,&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+			<link rel="stylesheet" href="https://static.planejativo.com/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css">			<nav class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-overline e--animation-fade">
+				<ul id="menu-1-76640e72" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2215"><a href="https://planejativo.com/materiais/" class="elementor-item">Materiais gratuitos</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-2598"><a href="https://planejativo.com/blog/" class="elementor-item">Blog</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2217"><a href="#" class="elementor-item elementor-item-anchor">Ferramentas gratuitas</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2672"><a href="https://app.planejativo.com/calculadora-tri-enem" class="elementor-sub-item">Calculadora ENEM TRI</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2673"><a href="https://app.planejativo.com/simulador-sisu" class="elementor-sub-item">Simulador SISU</a></li>
+</ul>
+</li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>			<span class="elementor-screen-only">Menu</span>
+		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-76640e72" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2215"><a href="https://planejativo.com/materiais/" class="elementor-item" tabindex="-1">Materiais gratuitos</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-2598"><a href="https://planejativo.com/blog/" class="elementor-item" tabindex="-1">Blog</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2217"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Ferramentas gratuitas</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2672"><a href="https://app.planejativo.com/calculadora-tri-enem" class="elementor-sub-item" tabindex="-1">Calculadora ENEM TRI</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2673"><a href="https://app.planejativo.com/simulador-sisu" class="elementor-sub-item" tabindex="-1">Simulador SISU</a></li>
+</ul>
+</li>
+</ul>			</nav>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-5d50f68" data-id="5d50f68" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-3ab6c106 elementor-align-right elementor-mobile-align-right elementor-widget elementor-widget-button" data-id="3ab6c106" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a class="elementor-button elementor-button-link elementor-size-sm" href="https://app.planejativo.com">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon elementor-align-icon-left">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-rocket" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M505.12019,19.09375c-1.18945-5.53125-6.65819-11-12.207-12.1875C460.716,0,435.507,0,410.40747,0,307.17523,0,245.26909,55.20312,199.05238,128H94.83772c-16.34763.01562-35.55658,11.875-42.88664,26.48438L2.51562,253.29688A28.4,28.4,0,0,0,0,264a24.00867,24.00867,0,0,0,24.00582,24H127.81618l-22.47457,22.46875c-11.36521,11.36133-12.99607,32.25781,0,45.25L156.24582,406.625c11.15623,11.1875,32.15619,13.15625,45.27726,0l22.47457-22.46875V488a24.00867,24.00867,0,0,0,24.00581,24,28.55934,28.55934,0,0,0,10.707-2.51562l98.72834-49.39063c14.62888-7.29687,26.50776-26.5,26.50776-42.85937V312.79688c72.59753-46.3125,128.03493-108.40626,128.03493-211.09376C512.07526,76.5,512.07526,51.29688,505.12019,19.09375ZM384.04033,168A40,40,0,1,1,424.05,128,40.02322,40.02322,0,0,1,384.04033,168Z"></path></svg>			</span>
+						<span class="elementor-button-text">Acesse grátis</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</nav>
+							</div>
+				</nav>
+				<div data-elementor-type="single-post" data-elementor-id="3040" class="elementor elementor-3040 elementor-location-single post-11941 post type-post status-publish format-standard has-post-thumbnail hentry category-produtividade tag-cronograma-de-estudos tag-manter-o-foco-nos-estudos tag-planejamento-de-estudos tag-produtividade-nos-estudos tag-tecnicas-de-estudo" data-elementor-post-type="elementor_library">
+					<div class="elementor-section-wrap">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-7f27504b elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7f27504b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;shape_divider_bottom&quot;:&quot;wave-brush&quot;}">
+							<div class="elementor-background-overlay"></div>
+						<div class="elementor-shape elementor-shape-bottom" data-negative="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.5 27.8" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" d="M283.5,9.7c0,0-7.3,4.3-14,4.6c-6.8,0.3-12.6,0-20.9-1.5c-11.3-2-33.1-10.1-44.7-5.7	s-12.1,4.6-18,7.4c-6.6,3.2-20,9.6-36.6,9.3C131.6,23.5,99.5,7.2,86.3,8c-1.4,0.1-6.6,0.8-10.5,2c-3.8,1.2-9.4,3.8-17,4.7	c-3.2,0.4-8.3,1.1-14.2,0.9c-1.5-0.1-6.3-0.4-12-1.6c-5.7-1.2-11-3.1-15.8-3.7C6.5,9.2,0,10.8,0,10.8V0h283.5V9.7z M260.8,11.3	c-0.7-1-2-0.4-4.3-0.4c-2.3,0-6.1-1.2-5.8-1.1c0.3,0.1,3.1,1.5,6,1.9C259.7,12.2,261.4,12.3,260.8,11.3z M242.4,8.6	c0,0-2.4-0.2-5.6-0.9c-3.2-0.8-10.3-2.8-15.1-3.5c-8.2-1.1-15.8,0-15.1,0.1c0.8,0.1,9.6-0.6,17.6,1.1c3.3,0.7,9.3,2.2,12.4,2.7	C239.9,8.7,242.4,8.6,242.4,8.6z M185.2,8.5c1.7-0.7-13.3,4.7-18.5,6.1c-2.1,0.6-6.2,1.6-10,2c-3.9,0.4-8.9,0.4-8.8,0.5	c0,0.2,5.8,0.8,11.2,0c5.4-0.8,5.2-1.1,7.6-1.6C170.5,14.7,183.5,9.2,185.2,8.5z M199.1,6.9c0.2,0-0.8-0.4-4.8,1.1	c-4,1.5-6.7,3.5-6.9,3.7c-0.2,0.1,3.5-1.8,6.6-3C197,7.5,199,6.9,199.1,6.9z M283,6c-0.1,0.1-1.9,1.1-4.8,2.5s-6.9,2.8-6.7,2.7	c0.2,0,3.5-0.6,7.4-2.5C282.8,6.8,283.1,5.9,283,6z M31.3,11.6c0.1-0.2-1.9-0.2-4.5-1.2s-5.4-1.6-7.8-2C15,7.6,7.3,8.5,7.7,8.6	C8,8.7,15.9,8.3,20.2,9.3c2.2,0.5,2.4,0.5,5.7,1.6S31.2,11.9,31.3,11.6z M73,9.2c0.4-0.1,3.5-1.6,8.4-2.6c4.9-1.1,8.9-0.5,8.9-0.8	c0-0.3-1-0.9-6.2-0.3S72.6,9.3,73,9.2z M71.6,6.7C71.8,6.8,75,5.4,77.3,5c2.3-0.3,1.9-0.5,1.9-0.6c0-0.1-1.1-0.2-2.7,0.2	C74.8,5.1,71.4,6.6,71.6,6.7z M93.6,4.4c0.1,0.2,3.5,0.8,5.6,1.8c2.1,1,1.8,0.6,1.9,0.5c0.1-0.1-0.8-0.8-2.4-1.3	C97.1,4.8,93.5,4.2,93.6,4.4z M65.4,11.1c-0.1,0.3,0.3,0.5,1.9-0.2s2.6-1.3,2.2-1.2s-0.9,0.4-2.5,0.8C65.3,10.9,65.5,10.8,65.4,11.1	z M34.5,12.4c-0.2,0,2.1,0.8,3.3,0.9c1.2,0.1,2,0.1,2-0.2c0-0.3-0.1-0.5-1.6-0.4C36.6,12.8,34.7,12.4,34.5,12.4z M152.2,21.1	c-0.1,0.1-2.4-0.3-7.5-0.3c-5,0-13.6-2.4-17.2-3.5c-3.6-1.1,10,3.9,16.5,4.1C150.5,21.6,152.3,21,152.2,21.1z"/>
+	<path class="elementor-shape-fill" d="M269.6,18c-0.1-0.1-4.6,0.3-7.2,0c-7.3-0.7-17-3.2-16.6-2.9c0.4,0.3,13.7,3.1,17,3.3	C267.7,18.8,269.7,18,269.6,18z"/>
+	<path class="elementor-shape-fill" d="M227.4,9.8c-0.2-0.1-4.5-1-9.5-1.2c-5-0.2-12.7,0.6-12.3,0.5c0.3-0.1,5.9-1.8,13.3-1.2	S227.6,9.9,227.4,9.8z"/>
+	<path class="elementor-shape-fill" d="M204.5,13.4c-0.1-0.1,2-1,3.2-1.1c1.2-0.1,2,0,2,0.3c0,0.3-0.1,0.5-1.6,0.4	C206.4,12.9,204.6,13.5,204.5,13.4z"/>
+	<path class="elementor-shape-fill" d="M201,10.6c0-0.1-4.4,1.2-6.3,2.2c-1.9,0.9-6.2,3.1-6.1,3.1c0.1,0.1,4.2-1.6,6.3-2.6	S201,10.7,201,10.6z"/>
+	<path class="elementor-shape-fill" d="M154.5,26.7c-0.1-0.1-4.6,0.3-7.2,0c-7.3-0.7-17-3.2-16.6-2.9c0.4,0.3,13.7,3.1,17,3.3	C152.6,27.5,154.6,26.8,154.5,26.7z"/>
+	<path class="elementor-shape-fill" d="M41.9,19.3c0,0,1.2-0.3,2.9-0.1c1.7,0.2,5.8,0.9,8.2,0.7c4.2-0.4,7.4-2.7,7-2.6	c-0.4,0-4.3,2.2-8.6,1.9c-1.8-0.1-5.1-0.5-6.7-0.4S41.9,19.3,41.9,19.3z"/>
+	<path class="elementor-shape-fill" d="M75.5,12.6c0.2,0.1,2-0.8,4.3-1.1c2.3-0.2,2.1-0.3,2.1-0.5c0-0.1-1.8-0.4-3.4,0	C76.9,11.5,75.3,12.5,75.5,12.6z"/>
+	<path class="elementor-shape-fill" d="M15.6,13.2c0-0.1,4.3,0,6.7,0.5c2.4,0.5,5,1.9,5,2c0,0.1-2.7-0.8-5.1-1.4	C19.9,13.7,15.7,13.3,15.6,13.2z"/>
+</svg>		</div>
+					<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7a201269" data-id="7a201269" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-388b3fe5 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="388b3fe5" data-element_type="widget" data-widget_type="theme-post-title.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.18.0 - 20-12-2023 */
+.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h1 class="elementor-heading-title elementor-size-default">Como aumentar a produtividade nos estudos</h1>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-dab1fb5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="dab1fb5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-40586fe2" data-id="40586fe2" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-182eef86 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="182eef86" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-120fb2a2" data-id="120fb2a2" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-720369cc elementor-widget elementor-widget-heading" data-id="720369cc" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Aumentar a produtividade nos estudos para o ENEM pode ser um grande desafio, não é mesmo? Mas nada está perdido: juntamos aqui dicas para te ajudar no seu foco e concentração.</h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-37ff526a" data-id="37ff526a" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-3c0b005e elementor-widget elementor-widget-heading" data-id="3c0b005e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Conhece alguém que pode achar esse conteúdo interessante? Compartilhe!</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-1a7b91b2 elementor-share-buttons--view-icon elementor-share-buttons--skin-flat elementor-share-buttons--align-left elementor-share-buttons-tablet--align-center elementor-share-buttons-mobile--align-center elementor-share-buttons--color-custom elementor-share-buttons--shape-square elementor-grid-0 elementor-widget elementor-widget-share-buttons" data-id="1a7b91b2" data-element_type="widget" data-widget_type="share-buttons.default">
+				<div class="elementor-widget-container">
+			<link rel="stylesheet" href="https://static.planejativo.com/wp-content/plugins/elementor-pro/assets/css/widget-share-buttons.min.css">		<div class="elementor-grid">
+								<div class="elementor-grid-item">
+						<div
+							class="elementor-share-btn elementor-share-btn_whatsapp"
+							role="button"
+							tabindex="0"
+							aria-label="Share on whatsapp"
+						>
+															<span class="elementor-share-btn__icon">
+								<svg class="e-font-icon-svg e-fab-whatsapp" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>							</span>
+																				</div>
+					</div>
+									<div class="elementor-grid-item">
+						<div
+							class="elementor-share-btn elementor-share-btn_twitter"
+							role="button"
+							tabindex="0"
+							aria-label="Share on twitter"
+						>
+															<span class="elementor-share-btn__icon">
+								<svg class="e-font-icon-svg e-fab-twitter" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>							</span>
+																				</div>
+					</div>
+									<div class="elementor-grid-item">
+						<div
+							class="elementor-share-btn elementor-share-btn_facebook"
+							role="button"
+							tabindex="0"
+							aria-label="Share on facebook"
+						>
+															<span class="elementor-share-btn__icon">
+								<svg class="e-font-icon-svg e-fab-facebook" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>							</span>
+																				</div>
+					</div>
+									<div class="elementor-grid-item">
+						<div
+							class="elementor-share-btn elementor-share-btn_telegram"
+							role="button"
+							tabindex="0"
+							aria-label="Share on telegram"
+						>
+															<span class="elementor-share-btn__icon">
+								<svg class="e-font-icon-svg e-fab-telegram" viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"></path></svg>							</span>
+																				</div>
+					</div>
+									<div class="elementor-grid-item">
+						<div
+							class="elementor-share-btn elementor-share-btn_pinterest"
+							role="button"
+							tabindex="0"
+							aria-label="Share on pinterest"
+						>
+															<span class="elementor-share-btn__icon">
+								<svg class="e-font-icon-svg e-fab-pinterest" viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"></path></svg>							</span>
+																				</div>
+					</div>
+						</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-56556e74 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="56556e74" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-3e8ad5c6" data-id="3e8ad5c6" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-7b96542 elementor-align-left elementor-widget elementor-widget-breadcrumbs" data-id="7b96542" data-element_type="widget" data-widget_type="breadcrumbs.default">
+				<div class="elementor-widget-container">
+			<link rel="stylesheet" href="https://static.planejativo.com/wp-content/plugins/elementor-pro/assets/css/widget-theme-elements.min.css"><nav id="breadcrumbs"><span><span><a href="https://planejativo.com/">Home</a></span> » <span><a href="https://planejativo.com/blog/">Blog</a></span> » <span class="breadcrumb_last" aria-current="page">Como aumentar a produtividade nos estudos</span></span></nav>		</div>
+				</div>
+				<div class="elementor-element elementor-element-33dc2834 elementor-widget elementor-widget-theme-post-content" data-id="33dc2834" data-element_type="widget" data-widget_type="theme-post-content.default">
+				<div class="elementor-widget-container">
+			
+<p>Muitas vezes utilizamos nosso tempo tentando descobrir como <strong>aumentar a produtividade nos estudos</strong> ou como melhorar o rendimento na hora de aprender. Não existe fórmula mágica para isso, mas existem <strong>dicas</strong> que podem mudar completamente sua gestão de tempo, além de tornar seu dia mais produtivo.</p>
+
+
+
+<p>Primeiro de tudo, é importante entender que a produtividade está ligada a diversos fatores, como gerenciamento do tempo, organização, falta de foco e dificuldade de concentração. Então é preciso estar ciente de tudo isso antes de <a href="https://planejativo.com/como-planejar-os-estudos-para-o-enem-2023/">planejar seus estudos para o Enem</a>. Afinal, compreender esses pilares é o primeiro passo para quem busca <strong>aumentar o</strong> <strong>rendimento nos estudos</strong> de forma consistente.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img fetchpriority="high" fetchpriority="high" decoding="async" width="1024" height="576" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20576'%3E%3C/svg%3E" alt="Como aumentar a produtividade nos estudos para o Enem" class="wp-image-11946" style="width:638px;height:357px" data-lazy-srcset="https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4-1024x576.png 1024w, https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4-300x169.png 300w, https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4-768x432.png 768w, https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4.png 1536w" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px" data-lazy-src="https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4-1024x576.png" /><noscript><img fetchpriority="high" fetchpriority="high" decoding="async" width="1024" height="576" src="https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4-1024x576.png" alt="Como aumentar a produtividade nos estudos para o Enem" class="wp-image-11946" style="width:638px;height:357px" srcset="https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4-1024x576.png 1024w, https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4-300x169.png 300w, https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4-768x432.png 768w, https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome4.png 1536w" sizes="(max-width: 1024px) 100vw, 1024px" /></noscript></figure></div>
+
+
+<p>Com dedicação e desenvolvimento de alguns hábitos, é possível tornar o tempo de aprendizado mais proveitoso e até mais prazeroso! Quer saber o que é preciso para ser mais produtivo nos estudos? Então vamos aprender algumas dicas.</p>
+
+
+
+<h2 class="wp-block-heading" id="h-gerencie-seu-tempo-criando-um-cronograma-de-estudos">Gerencie seu tempo criando um cronograma de estudos</h2>
+
+
+
+<p>O primeiro passo para conseguir ter concentração em uma determinada atividade, seja estudando e até mesmo executando as tarefas do dia, é entender como seu tempo diário funciona. Para isso, é preciso gerenciá-lo e criar um<strong> cronograma de estudos </strong>eficaz para você. Afinal, saber <strong>como estudar com foco e disciplina</strong> depende diretamente de uma rotina bem estruturada.</p>
+
+
+
+<p>Manter uma rotina organizada vai te ajudar a criar hábitos e aumentar a produtividade, então planeje um horário para acordar, descansar, se alimentar, ter lazer e fazer as atividades do cotidiano. Com isso, estabeleça, também, quanto tempo você tem para estudar durante a semana e faça seu cronograma.</p>
+
+
+
+<p>Montando um cronograma de estudos, você será orientado sobre cada conteúdo que precisará estudar no dia e não vai se perder entre os assuntos! Utilize toda a sua energia e motivação e aproveite o seu cronograma.</p>
+
+
+
+<h2 class="wp-block-heading" id="h-utilize-tecnicas-de-estudo">Utilize técnicas de estudo</h2>
+
+
+
+<p>Algumas vezes, o que mais te atrapalha a aumentar a produtividade nos estudos para o Enem são as estratégias que não funcionam bem para você. Buscar novas técnicas de estudo pode ser a chave que abrirá sua mente para melhorar o rendimento.&nbsp;</p>
+
+
+
+<p>Conheça dois métodos interessantes para aumentar sua produtividade:</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://planejativo.com/tecnica-de-estudo-intercalado/">Estudo intercalado</a>: essa técnica consiste em alternar entre as disciplinas na hora de estudar, ou seja, você faz um “rodízio” e distribui adequadamente os conteúdos, promovendo um estudo mais dinâmico sem que você canse de ficar vendo o mesmo assunto.</li>
+
+
+
+<li><a href="https://planejativo.com/corrigir-simulados-pode-aumentar-o-seu-desempenho-no-enem/">Corrigir simulados</a>: Tirar um tempo para correção de simulados e análise de erros pode te ajudar a ver os assuntos na prática, além de fazer você gerenciar e controlar o seu tempo. Esse método também faz você ter familiaridade com a prova do Enem.</li>
+</ul>
+
+
+
+<p>Para conhecer mais estratégias de estudo, leia aqui: <a href="https://planejativo.com/6-tecnicas-de-estudo-para-arrasar-no-enem/">6 técnicas de estudo para arrasar no ENEM</a>.</p>
+
+
+
+<h2 class="wp-block-heading" id="h-quais-sao-os-seus-momentos-mais-produtivos">Quais são os seus momentos mais produtivos?</h2>
+
+
+
+<p>Conheça os momentos que você mais se sente motivado a estudar. Depois de verificar suas técnicas de estudo favoritas e entender o que funciona melhor para você, reconheça qual o horário que você tem disposição para aprender e adapte à sua rotina.</p>
+
+
+
+<p>Talvez o horário que você mais se sente disposto a estudar seja pela manhã, então aproveite esse tempo para aprender ou rever conteúdos e assuntos que você está estudando para o Enem, desde que você consiga <a href="https://planejativo.com/como-conciliar-trabalho-e-estudos-para-o-enem/">conciliar com as outras atividades diárias</a>. Para outras pessoas, estudar à noite é o ideal, então ajuste sua rotina, mas não esqueça do horário de descanso e de sono.</p>
+
+
+
+<h2 class="wp-block-heading" id="h-use-a-tecnologia-e-os-aplicativos-para-aumentar-a-produtividade">Use a tecnologia e os aplicativos para aumentar a produtividade</h2>
+
+
+
+<p>Sabia que existem aplicativos e sites voltados para aumentar a produtividade? Eles são de grande ajuda quando o assunto é criar foco e ter concentração, te auxiliando a manter o ritmo e a energia que você já tinha quando começou a estudar para o Enem.</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://trello.com/pt-BR">Trello</a>: Já ouviu falar dele? O Trello é uma plataforma que te ajuda nas atividades diárias e pode te auxiliar a criar e bater metas. Você pode criar prazos e cards que servem como listas.</li>
+
+
+
+<li><a href="https://www.forestapp.cc/">Forest</a>: Esse aplicativo é também uma extensão disponível para diversos navegadores. Ele te ajuda a cronometrar seu tempo de modo divertido e lúdico.</li>
+
+
+
+<li><a href="https://evernote.com/intl/pt-br/download">Evernote</a>: Esse aplicativo te auxilia a tomar notas sobre os conteúdos que você estuda. Nele, é possível organizar qualquer informação necessária e salvar documentos e arquivos variados.</li>
+</ul>
+
+
+
+<p>Se você prefere estudar pelo celular, o <a href="https://planejativo.com/">Planejativo</a> também te ajuda! A plataforma tem a versão em aplicativo para te auxiliar, ainda mais, no seu objetivo de passar no ENEM. <a href="https://play.google.com/store/apps/details?id=com.planejativo.app.twa&amp;hl=pt_BR&amp;gl=US&amp;pli=1">Baixe grátis</a>!</p>
+
+
+
+<p>Além dos aplicativos, você pode utilizar o que já está no seu celular: assistentes virtuais. Essas ferramentas podem ser um diferencial no desenvolvimento da sua produtividade e você sempre usar essa tecnologia nos estudos para o Enem: <a href="https://planejativo.com/como-estudar-para-o-enem-com-assistentes-virtuais/">saiba como</a>.</p>
+
+
+
+<h2 class="wp-block-heading" id="h-tenha-o-ambiente-adequado-para-estudar-e-aumentar-a-produtividade">Tenha o ambiente adequado para estudar e aumentar a produtividade</h2>
+
+
+
+<p>Não é só planejar a rotina: também precisamos procurar o ambiente mais adequado para melhorar o rendimento nos estudos, principalmente se você quer <a href="https://planejativo.com/saiba-como-estudar-sozinho-para-o-enem/">estudar sozinho para o Enem</a>. Assim, encontrar o local ideal faz toda a diferença para quem quer descobrir <strong>como ter concentração para estudar</strong> sem interrupções.</p>
+
+
+
+<p>Ter um local que ofereça bem-estar e concentração é essencial para aumentar a produtividade nos estudos, por isso, ele precisa ser arejado e bem iluminado, preferencialmente com luz solar. Além disso, procure um lugar com mesa e cadeira adequadas para ter uma postura melhor enquanto aprende. Não estude na cama, pois, dessa forma, será muito mais difícil de alcançar seu momento de concentração.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img decoding="async" width="1024" height="576" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20576'%3E%3C/svg%3E" alt="Como aumentar a produtividade nos estudos para o Enem" class="wp-image-11949" style="width:628px;height:353px" data-lazy-srcset="https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome5-1024x576.png 1024w, https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome5-300x169.png 300w, https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome5-768x432.png 768w, https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome5.png 1536w" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px" data-lazy-src="https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome5-1024x576.png" /><noscript><img decoding="async" width="1024" height="576" src="https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome5-1024x576.png" alt="Como aumentar a produtividade nos estudos para o Enem" class="wp-image-11949" style="width:628px;height:353px" srcset="https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome5-1024x576.png 1024w, https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome5-300x169.png 300w, https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome5-768x432.png 768w, https://static.planejativo.com/wp-content/uploads/2023/04/Design-sem-nome5.png 1536w" sizes="(max-width: 1024px) 100vw, 1024px" /></noscript></figure></div>
+
+
+<p>Deixe seu ambiente de estudo sempre limpo, organizado e com menos barulho possível, caso contrário, você estará desviando o foco várias vezes e nem mesmo irá perceber. Também não acumule objetos no lugar, porque isso pode te distrair no momento que você mais precisa se concentrar.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="h-o-que-atrapalha-o-aumento-da-produtividade">O que atrapalha o aumento da produtividade?</h2>
+
+
+
+<p>Além de tudo o que já falamos aqui, é importante saber, ainda, o que mais te atrapalha na tentativa de fazer seu tempo ser produtivo. Portanto, observe sua rotina, seu cronograma de estudos para o Enem, as técnicas que utiliza, o ambiente que você utiliza e os elementos à sua volta que podem te atrapalhar.</p>
+
+
+
+<p>O celular pode ser aquilo que mais te distrai dos estudos, mas você pode sempre ativar a função “Não perturbe” no dispositivo. Afinal, esse modo é capaz de silenciar chamadas, alertas e notificações recebidas no celular no seu horário de estudo e você pode desativar quando precisar.</p>
+
+
+
+<h2 class="wp-block-heading" id="h-checklist-da-produtividade-resumo-pratico"><strong>Checklist da Produtividade: Resumo Prático</strong></h2>
+
+
+
+<p>Para garantir que você absorveu todas as estratégias e está pronto para aumentar a produtividade, preparamos um resumo prático do que vimos:</p>
+
+
+
+<ul class="wp-block-list">
+<li>[ ] <strong>Gerencie seu tempo:</strong> Crie um cronograma de estudos realista;</li>
+
+
+
+<li>[ ] <strong>Aplique técnicas dinâmicas:</strong> Experimente métodos de estudo ativo;</li>
+
+
+
+<li>[ ] <strong>Identifique seu ápice de energia:</strong> Descubra em que momento do dia o seu rendimento é maior;</li>
+
+
+
+<li>[ ] <strong>Alie-se à tecnologia:</strong> Utilize aplicativos de organização, como o <a href="http://Checklist da Produtividade: Resumo Prático">app do Planejativo</a>;</li>
+
+
+
+<li>[ ] <strong>Prepare o ambiente ideal:</strong> Estude em um local limpo, bem iluminado, silencioso.</li>
+</ul>
+
+
+
+<p>Por fim, esteja ciente de tudo aquilo que te atrapalha e, aos poucos, elimine as distrações para conseguir melhorar ainda mais seu rendimento nos estudos.</p>
+
+
+
+<figure class="wp-block-image size-large"><a href="https://app.planejativo.com/?utm_source=blog&amp;utm_medium=banner&amp;utm_campaign=como_aumentar_a_produtividade_nos_estudos"><img decoding="async" width="1024" height="273" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20273'%3E%3C/svg%3E" alt="" class="wp-image-11816" data-lazy-srcset="https://static.planejativo.com/wp-content/uploads/2023/03/Banner-Plataforma-1-1024x273.png 1024w, https://static.planejativo.com/wp-content/uploads/2023/03/Banner-Plataforma-1-300x80.png 300w, https://static.planejativo.com/wp-content/uploads/2023/03/Banner-Plataforma-1-768x205.png 768w, https://static.planejativo.com/wp-content/uploads/2023/03/Banner-Plataforma-1.png 1200w" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px" data-lazy-src="https://static.planejativo.com/wp-content/uploads/2023/03/Banner-Plataforma-1-1024x273.png" /><noscript><img decoding="async" width="1024" height="273" src="https://static.planejativo.com/wp-content/uploads/2023/03/Banner-Plataforma-1-1024x273.png" alt="" class="wp-image-11816" srcset="https://static.planejativo.com/wp-content/uploads/2023/03/Banner-Plataforma-1-1024x273.png 1024w, https://static.planejativo.com/wp-content/uploads/2023/03/Banner-Plataforma-1-300x80.png 300w, https://static.planejativo.com/wp-content/uploads/2023/03/Banner-Plataforma-1-768x205.png 768w, https://static.planejativo.com/wp-content/uploads/2023/03/Banner-Plataforma-1.png 1200w" sizes="(max-width: 1024px) 100vw, 1024px" /></noscript></a></figure>
+
+
+
+<p></p>
+		</div>
+				</div>
+				<div class="elementor-element elementor-element-e957bc5 elementor-widget elementor-widget-post-navigation" data-id="e957bc5" data-element_type="widget" data-widget_type="post-navigation.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-post-navigation">
+			<div class="elementor-post-navigation__prev elementor-post-navigation__link">
+				<a href="https://planejativo.com/dicas-infaliveis-para-conseguir-mais-tempo-para-estudar/" rel="prev"><span class="post-navigation__arrow-wrapper post-navigation__arrow-prev"><i class="fa fa-angle-left" aria-hidden="true"></i><span class="elementor-screen-only">Prev</span></span><span class="elementor-post-navigation__link__prev"><span class="post-navigation__prev--label">Post anterior</span><span class="post-navigation__prev--title">Dicas infalíveis para conseguir mais tempo para estudar</span></span></a>			</div>
+						<div class="elementor-post-navigation__next elementor-post-navigation__link">
+				<a href="https://planejativo.com/mapas-mentais-dos-assuntos-que-mais-caem-no-enem/" rel="next"><span class="elementor-post-navigation__link__next"><span class="post-navigation__next--label">Próximo post</span><span class="post-navigation__next--title">Mapas Mentais dos Assuntos que mais caem no ENEM</span></span><span class="post-navigation__arrow-wrapper post-navigation__arrow-next"><i class="fa fa-angle-right" aria-hidden="true"></i><span class="elementor-screen-only">Next</span></span></a>			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-26159b52 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="26159b52" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-1f46ae53" data-id="1f46ae53" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-63b94c2d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="63b94c2d" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6072cfed" data-id="6072cfed" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-532056bb elementor-widget elementor-widget-heading" data-id="532056bb" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Mais conteúdo sobre o ENEM</h3>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-34c65e2d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="34c65e2d" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3242e1ca" data-id="3242e1ca" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-6a37d789 elementor-grid-3 elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-posts--thumbnail-top elementor-card-shadow-yes elementor-posts__hover-gradient elementor-widget elementor-widget-posts" data-id="6a37d789" data-element_type="widget" data-settings="{&quot;cards_columns&quot;:&quot;3&quot;,&quot;cards_columns_tablet&quot;:&quot;2&quot;,&quot;cards_columns_mobile&quot;:&quot;1&quot;,&quot;cards_row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:35,&quot;sizes&quot;:[]},&quot;cards_row_gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;cards_row_gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="posts.cards">
+				<div class="elementor-widget-container">
+			<link rel="stylesheet" href="https://static.planejativo.com/wp-content/plugins/elementor-pro/assets/css/widget-posts.min.css">		<div class="elementor-posts-container elementor-posts elementor-posts--skin-cards elementor-grid">
+				<article class="elementor-post elementor-grid-item post-16873 post type-post status-publish format-standard has-post-thumbnail hentry category-prova-do-enem category-sem-categoria">
+			<div class="elementor-post__card">
+				<a class="elementor-post__thumbnail__link" href="https://planejativo.com/quando-sai-o-local-de-prova-do-enem/" tabindex="-1" ><div class="elementor-post__thumbnail"><img width="300" height="200" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20200'%3E%3C/svg%3E" class="attachment-medium size-medium wp-image-16879" alt="Quando sai a nota do ENEM" decoding="async" data-lazy-srcset="https://static.planejativo.com/wp-content/uploads/2025/09/Design-sem-nome-12-1-300x200.png.webp 300w,https://static.planejativo.com/wp-content/uploads/2025/09/Design-sem-nome-12-1-768x512.png 768w,https://static.planejativo.com/wp-content/uploads/2025/09/Design-sem-nome-12-1.png.webp 818w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://static.planejativo.com/wp-content/uploads/2025/09/Design-sem-nome-12-1-300x200.png.webp" /><noscript><img loading="lazy" width="300" height="200" src="https://static.planejativo.com/wp-content/uploads/2025/09/Design-sem-nome-12-1-300x200.png.webp" class="attachment-medium size-medium wp-image-16879" alt="Quando sai a nota do ENEM" decoding="async" srcset="https://static.planejativo.com/wp-content/uploads/2025/09/Design-sem-nome-12-1-300x200.png.webp 300w,https://static.planejativo.com/wp-content/uploads/2025/09/Design-sem-nome-12-1-768x512.png 768w,https://static.planejativo.com/wp-content/uploads/2025/09/Design-sem-nome-12-1.png.webp 818w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://planejativo.com/quando-sai-o-local-de-prova-do-enem/" >
+				Quando sai o local de prova do ENEM 2025? Veja data			</a>
+		</h3>
+				<div class="elementor-post__excerpt">
+			<p>Quando sai local de prova do ENEM? A data oficial ainda não foi divulgada, mas isso deve ocorre até 10 dias antes da primeira prova.</p>
+		</div>
+				</div>
+					</div>
+		</article>
+				<article class="elementor-post elementor-grid-item post-16256 post type-post status-publish format-standard has-post-thumbnail hentry category-sem-categoria">
+			<div class="elementor-post__card">
+				<a class="elementor-post__thumbnail__link" href="https://planejativo.com/como-vender-mentoria-enem/" tabindex="-1" ><div class="elementor-post__thumbnail"><img width="300" height="300" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" class="attachment-medium size-medium wp-image-16258" alt="Como vender mais mentorias para o enem" decoding="async" data-lazy-srcset="https://static.planejativo.com/wp-content/uploads/2025/05/Como-vender-mais-mentorias-para-o-enem-300x300.png.webp 300w,https://static.planejativo.com/wp-content/uploads/2025/05/Como-vender-mais-mentorias-para-o-enem-1024x1024.png.webp 1024w,https://static.planejativo.com/wp-content/uploads/2025/05/Como-vender-mais-mentorias-para-o-enem-150x150.png 150w,https://static.planejativo.com/wp-content/uploads/2025/05/Como-vender-mais-mentorias-para-o-enem-768x768.png 768w,https://static.planejativo.com/wp-content/uploads/2025/05/Como-vender-mais-mentorias-para-o-enem.png.webp 1080w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://static.planejativo.com/wp-content/uploads/2025/05/Como-vender-mais-mentorias-para-o-enem-300x300.png.webp" /><noscript><img loading="lazy" width="300" height="300" src="https://static.planejativo.com/wp-content/uploads/2025/05/Como-vender-mais-mentorias-para-o-enem-300x300.png.webp" class="attachment-medium size-medium wp-image-16258" alt="Como vender mais mentorias para o enem" decoding="async" srcset="https://static.planejativo.com/wp-content/uploads/2025/05/Como-vender-mais-mentorias-para-o-enem-300x300.png.webp 300w,https://static.planejativo.com/wp-content/uploads/2025/05/Como-vender-mais-mentorias-para-o-enem-1024x1024.png.webp 1024w,https://static.planejativo.com/wp-content/uploads/2025/05/Como-vender-mais-mentorias-para-o-enem-150x150.png 150w,https://static.planejativo.com/wp-content/uploads/2025/05/Como-vender-mais-mentorias-para-o-enem-768x768.png 768w,https://static.planejativo.com/wp-content/uploads/2025/05/Como-vender-mais-mentorias-para-o-enem.png.webp 1080w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://planejativo.com/como-vender-mentoria-enem/" >
+				Como vender mais mentorias para o ENEM			</a>
+		</h3>
+				<div class="elementor-post__excerpt">
+			<p>Aprenda como vender mentorias ENEM com eficiência usando organização e tecnologia. Aumente suas vendas, retenha alunos e escale sua mentoria.</p>
+		</div>
+				</div>
+					</div>
+		</article>
+				<article class="elementor-post elementor-grid-item post-15914 post type-post status-publish format-standard has-post-thumbnail hentry category-planejamento-e-organizacao">
+			<div class="elementor-post__card">
+				<a class="elementor-post__thumbnail__link" href="https://planejativo.com/qual-o-melhor-cronograma-de-estudos-para-o-enem-2025/" tabindex="-1" ><div class="elementor-post__thumbnail"><img width="300" height="216" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20216'%3E%3C/svg%3E" class="attachment-medium size-medium wp-image-15586" alt="" decoding="async" data-lazy-srcset="https://static.planejativo.com/wp-content/uploads/2024/10/Banner-Plataforma-6-300x216.png.webp 300w,https://static.planejativo.com/wp-content/uploads/2024/10/Banner-Plataforma-6-1024x738.png.webp 1024w,https://static.planejativo.com/wp-content/uploads/2024/10/Banner-Plataforma-6-768x553.png 768w,https://static.planejativo.com/wp-content/uploads/2024/10/Banner-Plataforma-6-1536x1107.png 1536w,https://static.planejativo.com/wp-content/uploads/2024/10/Banner-Plataforma-6.png.webp 1578w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://static.planejativo.com/wp-content/uploads/2024/10/Banner-Plataforma-6-300x216.png.webp" /><noscript><img loading="lazy" width="300" height="216" src="https://static.planejativo.com/wp-content/uploads/2024/10/Banner-Plataforma-6-300x216.png.webp" class="attachment-medium size-medium wp-image-15586" alt="" decoding="async" srcset="https://static.planejativo.com/wp-content/uploads/2024/10/Banner-Plataforma-6-300x216.png.webp 300w,https://static.planejativo.com/wp-content/uploads/2024/10/Banner-Plataforma-6-1024x738.png.webp 1024w,https://static.planejativo.com/wp-content/uploads/2024/10/Banner-Plataforma-6-768x553.png 768w,https://static.planejativo.com/wp-content/uploads/2024/10/Banner-Plataforma-6-1536x1107.png 1536w,https://static.planejativo.com/wp-content/uploads/2024/10/Banner-Plataforma-6.png.webp 1578w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://planejativo.com/qual-o-melhor-cronograma-de-estudos-para-o-enem-2025/" >
+				Qual o melhor cronograma de estudos para o Enem 2025?			</a>
+		</h3>
+				<div class="elementor-post__excerpt">
+			<p>Se você vai fazer o Enem em 2025, provavelmente está se perguntando: “qual é o melhor cronograma de estudos para o Enem?”, certo? Afinal, um bom planejamento é a chave para garantir uma preparação eficiente e aumentar suas chances de</p>
+		</div>
+				</div>
+					</div>
+		</article>
+				</div>
+		
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+							</div>
+				</div>
+				<footer data-elementor-type="footer" data-elementor-id="3051" class="elementor elementor-3051 elementor-location-footer" data-elementor-post-type="elementor_library">
+					<div class="elementor-section-wrap">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-19e8d99a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="19e8d99a" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;shape_divider_top&quot;:&quot;wave-brush&quot;}">
+					<div class="elementor-shape elementor-shape-top" data-negative="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.5 27.8" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" d="M283.5,9.7c0,0-7.3,4.3-14,4.6c-6.8,0.3-12.6,0-20.9-1.5c-11.3-2-33.1-10.1-44.7-5.7	s-12.1,4.6-18,7.4c-6.6,3.2-20,9.6-36.6,9.3C131.6,23.5,99.5,7.2,86.3,8c-1.4,0.1-6.6,0.8-10.5,2c-3.8,1.2-9.4,3.8-17,4.7	c-3.2,0.4-8.3,1.1-14.2,0.9c-1.5-0.1-6.3-0.4-12-1.6c-5.7-1.2-11-3.1-15.8-3.7C6.5,9.2,0,10.8,0,10.8V0h283.5V9.7z M260.8,11.3	c-0.7-1-2-0.4-4.3-0.4c-2.3,0-6.1-1.2-5.8-1.1c0.3,0.1,3.1,1.5,6,1.9C259.7,12.2,261.4,12.3,260.8,11.3z M242.4,8.6	c0,0-2.4-0.2-5.6-0.9c-3.2-0.8-10.3-2.8-15.1-3.5c-8.2-1.1-15.8,0-15.1,0.1c0.8,0.1,9.6-0.6,17.6,1.1c3.3,0.7,9.3,2.2,12.4,2.7	C239.9,8.7,242.4,8.6,242.4,8.6z M185.2,8.5c1.7-0.7-13.3,4.7-18.5,6.1c-2.1,0.6-6.2,1.6-10,2c-3.9,0.4-8.9,0.4-8.8,0.5	c0,0.2,5.8,0.8,11.2,0c5.4-0.8,5.2-1.1,7.6-1.6C170.5,14.7,183.5,9.2,185.2,8.5z M199.1,6.9c0.2,0-0.8-0.4-4.8,1.1	c-4,1.5-6.7,3.5-6.9,3.7c-0.2,0.1,3.5-1.8,6.6-3C197,7.5,199,6.9,199.1,6.9z M283,6c-0.1,0.1-1.9,1.1-4.8,2.5s-6.9,2.8-6.7,2.7	c0.2,0,3.5-0.6,7.4-2.5C282.8,6.8,283.1,5.9,283,6z M31.3,11.6c0.1-0.2-1.9-0.2-4.5-1.2s-5.4-1.6-7.8-2C15,7.6,7.3,8.5,7.7,8.6	C8,8.7,15.9,8.3,20.2,9.3c2.2,0.5,2.4,0.5,5.7,1.6S31.2,11.9,31.3,11.6z M73,9.2c0.4-0.1,3.5-1.6,8.4-2.6c4.9-1.1,8.9-0.5,8.9-0.8	c0-0.3-1-0.9-6.2-0.3S72.6,9.3,73,9.2z M71.6,6.7C71.8,6.8,75,5.4,77.3,5c2.3-0.3,1.9-0.5,1.9-0.6c0-0.1-1.1-0.2-2.7,0.2	C74.8,5.1,71.4,6.6,71.6,6.7z M93.6,4.4c0.1,0.2,3.5,0.8,5.6,1.8c2.1,1,1.8,0.6,1.9,0.5c0.1-0.1-0.8-0.8-2.4-1.3	C97.1,4.8,93.5,4.2,93.6,4.4z M65.4,11.1c-0.1,0.3,0.3,0.5,1.9-0.2s2.6-1.3,2.2-1.2s-0.9,0.4-2.5,0.8C65.3,10.9,65.5,10.8,65.4,11.1	z M34.5,12.4c-0.2,0,2.1,0.8,3.3,0.9c1.2,0.1,2,0.1,2-0.2c0-0.3-0.1-0.5-1.6-0.4C36.6,12.8,34.7,12.4,34.5,12.4z M152.2,21.1	c-0.1,0.1-2.4-0.3-7.5-0.3c-5,0-13.6-2.4-17.2-3.5c-3.6-1.1,10,3.9,16.5,4.1C150.5,21.6,152.3,21,152.2,21.1z"/>
+	<path class="elementor-shape-fill" d="M269.6,18c-0.1-0.1-4.6,0.3-7.2,0c-7.3-0.7-17-3.2-16.6-2.9c0.4,0.3,13.7,3.1,17,3.3	C267.7,18.8,269.7,18,269.6,18z"/>
+	<path class="elementor-shape-fill" d="M227.4,9.8c-0.2-0.1-4.5-1-9.5-1.2c-5-0.2-12.7,0.6-12.3,0.5c0.3-0.1,5.9-1.8,13.3-1.2	S227.6,9.9,227.4,9.8z"/>
+	<path class="elementor-shape-fill" d="M204.5,13.4c-0.1-0.1,2-1,3.2-1.1c1.2-0.1,2,0,2,0.3c0,0.3-0.1,0.5-1.6,0.4	C206.4,12.9,204.6,13.5,204.5,13.4z"/>
+	<path class="elementor-shape-fill" d="M201,10.6c0-0.1-4.4,1.2-6.3,2.2c-1.9,0.9-6.2,3.1-6.1,3.1c0.1,0.1,4.2-1.6,6.3-2.6	S201,10.7,201,10.6z"/>
+	<path class="elementor-shape-fill" d="M154.5,26.7c-0.1-0.1-4.6,0.3-7.2,0c-7.3-0.7-17-3.2-16.6-2.9c0.4,0.3,13.7,3.1,17,3.3	C152.6,27.5,154.6,26.8,154.5,26.7z"/>
+	<path class="elementor-shape-fill" d="M41.9,19.3c0,0,1.2-0.3,2.9-0.1c1.7,0.2,5.8,0.9,8.2,0.7c4.2-0.4,7.4-2.7,7-2.6	c-0.4,0-4.3,2.2-8.6,1.9c-1.8-0.1-5.1-0.5-6.7-0.4S41.9,19.3,41.9,19.3z"/>
+	<path class="elementor-shape-fill" d="M75.5,12.6c0.2,0.1,2-0.8,4.3-1.1c2.3-0.2,2.1-0.3,2.1-0.5c0-0.1-1.8-0.4-3.4,0	C76.9,11.5,75.3,12.5,75.5,12.6z"/>
+	<path class="elementor-shape-fill" d="M15.6,13.2c0-0.1,4.3,0,6.7,0.5c2.4,0.5,5,1.9,5,2c0,0.1-2.7-0.8-5.1-1.4	C19.9,13.7,15.7,13.3,15.6,13.2z"/>
+</svg>		</div>
+					<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-38b6c390" data-id="38b6c390" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-74e0a612 elementor-widget elementor-widget-heading" data-id="74e0a612" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Visite nossas redes sociais</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-1d0cd87d elementor-shape-rounded elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons" data-id="1d0cd87d" data-element_type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.18.0 - 20-12-2023 */
+.elementor-widget-social-icons.elementor-grid-0 .elementor-widget-container,.elementor-widget-social-icons.elementor-grid-mobile-0 .elementor-widget-container,.elementor-widget-social-icons.elementor-grid-tablet-0 .elementor-widget-container{line-height:1;font-size:0}.elementor-widget-social-icons:not(.elementor-grid-0):not(.elementor-grid-tablet-0):not(.elementor-grid-mobile-0) .elementor-grid{display:inline-grid}.elementor-widget-social-icons .elementor-grid{grid-column-gap:var(--grid-column-gap,5px);grid-row-gap:var(--grid-row-gap,5px);grid-template-columns:var(--grid-template-columns);justify-content:var(--justify-content,center);justify-items:var(--justify-content,center)}.elementor-icon.elementor-social-icon{font-size:var(--icon-size,25px);line-height:var(--icon-size,25px);width:calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em));height:calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em))}.elementor-social-icon{--e-social-icon-icon-color:#fff;display:inline-flex;background-color:#69727d;align-items:center;justify-content:center;text-align:center;cursor:pointer}.elementor-social-icon i{color:var(--e-social-icon-icon-color)}.elementor-social-icon svg{fill:var(--e-social-icon-icon-color)}.elementor-social-icon:last-child{margin:0}.elementor-social-icon:hover{opacity:.9;color:#fff}.elementor-social-icon-android{background-color:#a4c639}.elementor-social-icon-apple{background-color:#999}.elementor-social-icon-behance{background-color:#1769ff}.elementor-social-icon-bitbucket{background-color:#205081}.elementor-social-icon-codepen{background-color:#000}.elementor-social-icon-delicious{background-color:#39f}.elementor-social-icon-deviantart{background-color:#05cc47}.elementor-social-icon-digg{background-color:#005be2}.elementor-social-icon-dribbble{background-color:#ea4c89}.elementor-social-icon-elementor{background-color:#d30c5c}.elementor-social-icon-envelope{background-color:#ea4335}.elementor-social-icon-facebook,.elementor-social-icon-facebook-f{background-color:#3b5998}.elementor-social-icon-flickr{background-color:#0063dc}.elementor-social-icon-foursquare{background-color:#2d5be3}.elementor-social-icon-free-code-camp,.elementor-social-icon-freecodecamp{background-color:#006400}.elementor-social-icon-github{background-color:#333}.elementor-social-icon-gitlab{background-color:#e24329}.elementor-social-icon-globe{background-color:#69727d}.elementor-social-icon-google-plus,.elementor-social-icon-google-plus-g{background-color:#dd4b39}.elementor-social-icon-houzz{background-color:#7ac142}.elementor-social-icon-instagram{background-color:#262626}.elementor-social-icon-jsfiddle{background-color:#487aa2}.elementor-social-icon-link{background-color:#818a91}.elementor-social-icon-linkedin,.elementor-social-icon-linkedin-in{background-color:#0077b5}.elementor-social-icon-medium{background-color:#00ab6b}.elementor-social-icon-meetup{background-color:#ec1c40}.elementor-social-icon-mixcloud{background-color:#273a4b}.elementor-social-icon-odnoklassniki{background-color:#f4731c}.elementor-social-icon-pinterest{background-color:#bd081c}.elementor-social-icon-product-hunt{background-color:#da552f}.elementor-social-icon-reddit{background-color:#ff4500}.elementor-social-icon-rss{background-color:#f26522}.elementor-social-icon-shopping-cart{background-color:#4caf50}.elementor-social-icon-skype{background-color:#00aff0}.elementor-social-icon-slideshare{background-color:#0077b5}.elementor-social-icon-snapchat{background-color:#fffc00}.elementor-social-icon-soundcloud{background-color:#f80}.elementor-social-icon-spotify{background-color:#2ebd59}.elementor-social-icon-stack-overflow{background-color:#fe7a15}.elementor-social-icon-steam{background-color:#00adee}.elementor-social-icon-stumbleupon{background-color:#eb4924}.elementor-social-icon-telegram{background-color:#2ca5e0}.elementor-social-icon-thumb-tack{background-color:#1aa1d8}.elementor-social-icon-tripadvisor{background-color:#589442}.elementor-social-icon-tumblr{background-color:#35465c}.elementor-social-icon-twitch{background-color:#6441a5}.elementor-social-icon-twitter{background-color:#1da1f2}.elementor-social-icon-viber{background-color:#665cac}.elementor-social-icon-vimeo{background-color:#1ab7ea}.elementor-social-icon-vk{background-color:#45668e}.elementor-social-icon-weibo{background-color:#dd2430}.elementor-social-icon-weixin{background-color:#31a918}.elementor-social-icon-whatsapp{background-color:#25d366}.elementor-social-icon-wordpress{background-color:#21759b}.elementor-social-icon-xing{background-color:#026466}.elementor-social-icon-yelp{background-color:#af0606}.elementor-social-icon-youtube{background-color:#cd201f}.elementor-social-icon-500px{background-color:#0099e5}.elementor-shape-rounded .elementor-icon.elementor-social-icon{border-radius:10%}.elementor-shape-circle .elementor-icon.elementor-social-icon{border-radius:50%}</style>		<div class="elementor-social-icons-wrapper elementor-grid">
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-a3bf9ea" href="https://www.instagram.com/planejativo/" target="_blank">
+						<span class="elementor-screen-only">Instagram</span>
+						<svg class="e-font-icon-svg e-fab-instagram" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-dc10550" href="https://twitter.com/planejativo" target="_blank">
+						<span class="elementor-screen-only">Twitter</span>
+						<svg class="e-font-icon-svg e-fab-twitter" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-dbaeb71" href="https://youtube.com/planejativo" target="_blank">
+						<span class="elementor-screen-only">Youtube</span>
+						<svg class="e-font-icon-svg e-fab-youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-repeater-item-d2d5c50" href="https://br.pinterest.com/planejativo/" target="_blank">
+						<span class="elementor-screen-only">Pinterest</span>
+						<svg class="e-font-icon-svg e-fab-pinterest" viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-0267196" href="https://www.facebook.com/planejativo" target="_blank">
+						<span class="elementor-screen-only">Facebook-f</span>
+						<svg class="e-font-icon-svg e-fab-facebook-f" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin-in elementor-repeater-item-9bc67e2" href="https://www.linkedin.com/company/planejativo" target="_blank">
+						<span class="elementor-screen-only">Linkedin-in</span>
+						<svg class="e-font-icon-svg e-fab-linkedin-in" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>					</a>
+				</span>
+					</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<footer class="elementor-section elementor-top-section elementor-element elementor-element-5a5de7e7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5a5de7e7" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-1067a8da" data-id="1067a8da" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-500e096b elementor-widget elementor-widget-heading" data-id="500e096b" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">Site</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-3d130448 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="3d130448" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+			<link rel="stylesheet" href="https://static.planejativo.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css">		<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="https://planejativo.com/">
+
+											<span class="elementor-icon-list-text">Home</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://planejativo.com/blog/">
+
+											<span class="elementor-icon-list-text">Blog</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://planejativo.com/materiais/">
+
+											<span class="elementor-icon-list-text">Materiais gratuitos</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://app.planejativo.com/calculadora-tri-enem">
+
+											<span class="elementor-icon-list-text">Calculadora ENEM TRI</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://app.planejativo.com/simulador-sisu">
+
+											<span class="elementor-icon-list-text">Simulador SISU</span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-0c5d2fb elementor-widget elementor-widget-heading" data-id="0c5d2fb" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">Mobile</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-6684699 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6684699" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="https://play.google.com/store/apps/details?id=com.planejativo.app.twa" target="_blank">
+
+											<span class="elementor-icon-list-text">APP Android</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://apps.apple.com/br/app/planejativo-enem/id6461267940">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-check" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">APP iOS</span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-5c2aa9e" data-id="5c2aa9e" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-1f95ee4e elementor-widget elementor-widget-heading" data-id="1f95ee4e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">Plataforma</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-48950ad6 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="48950ad6" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="https://app.planejativo.com/ajustar-plano">
+
+											<span class="elementor-icon-list-text">Plano de estudos</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://app.planejativo.com/cronograma">
+
+											<span class="elementor-icon-list-text">Cronograma adaptativo</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://app.planejativo.com/desempenho">
+
+											<span class="elementor-icon-list-text">Desempenho</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://app.planejativo.com/minhas-listas">
+
+											<span class="elementor-icon-list-text">Listas de exercícios</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://app.planejativo.com/meus-simulados">
+
+											<span class="elementor-icon-list-text">Simulados TRI</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://app.planejativo.com/resolver-flashcards">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-check" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Flashcards</span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5a18b735" data-id="5a18b735" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-119a97ca elementor-widget elementor-widget-heading" data-id="119a97ca" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">Copyright © 2023</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-105a591f elementor-widget elementor-widget-text-editor" data-id="105a591f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.18.0 - 20-12-2023 */
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>					<div class="elementor-text-editor elementor-clearfix">
+				<p><strong>Planejativo Educação e Tecnologia LTDA</strong></p><p>CNPJ 37.950.639/0001-48</p><p>Av. Cap. Mor Gouveia, S/N &#8211; Lagoa Nova, Natal &#8211; RN</p><p>Instituto Metrópole Digital, 3º Andar, Sala B-435</p><p>CEP 59078-970 (<a href="https://goo.gl/maps/edo4igDEVdhebaMB6" target="_blank" rel="noopener">abrir mapa</a>)</p><p><a href="/cdn-cgi/l/email-protection#c8aba7a6bca9bca788b8a4a9a6ada2a9bca1bea7e6aba7a5" target="_blank" rel="noopener"><strong><span class="__cf_email__" data-cfemail="d4b7bbbaa0b5a0bb94a4b8b5bab1beb5a0bda2bbfab7bbb9">[email&#160;protected]</span></strong></a></p><p><a href="https://planejativo.com/politica-de-privacidade/">Política de privacidade</a> | <a href="https://planejativo.com/termos-de-uso/">Termos de uso</a></p>					</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</footer>
+							</div>
+				</footer>
+		
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span><div class="cli-bar-container cli-style-v2"><div class="cli-bar-message"><br />
+Usamos cookies para garantir que você obtenha a melhor experiência em nosso site. Ao utilizar nossos serviços, você concorda com nossa <a href="https://planejativo.com/politica-de-privacidade/" target="_BLANK">Política de Privacidade</a> e nossa <a href="https://planejativo.com/politica-de-cookies/" target="_BLANK">Política de Cookies</a>.<br />
+</div><div class="cli-bar-btn_container"><a id="wt-cli-accept-all-btn" role='button' data-cli_action="accept_all" class="wt-cli-element large cli-plugin-button wt-cli-accept-all-btn cookie_action_close_header cli_action_button">Aceitar</a></div></div></span></div><div id="cookie-law-info-again" data-nosnippet="true"><span id="cookie_hdr_showagain">Manage consent</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Fechar</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Mostrar mais" role="button" data-readmore-text="Mostrar mais" data-readless-text="Mostrar menos"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+															<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox"  id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked="checked"  />
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Sempre ativado</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. These cookies ensure basic functionalities and security features of the website, anonymously.
+<table class="cookielawinfo-row-cat-table cookielawinfo-winter"><thead><tr><th class="cookielawinfo-column-1">Cookie</th><th class="cookielawinfo-column-3">Duração</th><th class="cookielawinfo-column-4">Descrição</th></tr></thead><tbody><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-analytics</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookie is used to store the user consent for the cookies in the category "Analytics".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-functional</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">The cookie is set by GDPR cookie consent to record the user consent for the cookies in the category "Functional".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-necessary</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookies is used to store the user consent for the cookies in the category "Necessary".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-others</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookie is used to store the user consent for the cookies in the category "Other.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-performance</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookie is used to store the user consent for the cookies in the category "Performance".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">viewed_cookie_policy</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">The cookie is set by the GDPR Cookie Consent plugin and is used to store whether or not user has consented to the use of cookies. It does not store any personal data.</td></tr></tbody></table>								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="functional" data-toggle="cli-toggle-tab">
+								Functional							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-functional" class="cli-user-preference-checkbox"  data-id="checkbox-functional" />
+									<label for="wt-cli-checkbox-functional" class="cli-slider" data-cli-enable="Ativado" data-cli-disable="Desativado"><span class="wt-cli-sr-only">Functional</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="functional">
+								<div class="wt-cli-cookie-description">
+									Functional cookies help to perform certain functionalities like sharing the content of the website on social media platforms, collect feedbacks, and other third-party features.
+								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="performance" data-toggle="cli-toggle-tab">
+								Performance							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-performance" class="cli-user-preference-checkbox"  data-id="checkbox-performance" />
+									<label for="wt-cli-checkbox-performance" class="cli-slider" data-cli-enable="Ativado" data-cli-disable="Desativado"><span class="wt-cli-sr-only">Performance</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="performance">
+								<div class="wt-cli-cookie-description">
+									Performance cookies are used to understand and analyze the key performance indexes of the website which helps in delivering a better user experience for the visitors.
+								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="analytics" data-toggle="cli-toggle-tab">
+								Analytics							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-analytics" class="cli-user-preference-checkbox"  data-id="checkbox-analytics" />
+									<label for="wt-cli-checkbox-analytics" class="cli-slider" data-cli-enable="Ativado" data-cli-disable="Desativado"><span class="wt-cli-sr-only">Analytics</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="analytics">
+								<div class="wt-cli-cookie-description">
+									Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics the number of visitors, bounce rate, traffic source, etc.
+								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="advertisement" data-toggle="cli-toggle-tab">
+								Advertisement							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-advertisement" class="cli-user-preference-checkbox"  data-id="checkbox-advertisement" />
+									<label for="wt-cli-checkbox-advertisement" class="cli-slider" data-cli-enable="Ativado" data-cli-disable="Desativado"><span class="wt-cli-sr-only">Advertisement</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="advertisement">
+								<div class="wt-cli-cookie-description">
+									Advertisement cookies are used to provide visitors with relevant ads and marketing campaigns. These cookies track visitors across websites and collect information to provide customized ads.
+								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="others" data-toggle="cli-toggle-tab">
+								Others							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-others" class="cli-user-preference-checkbox"  data-id="checkbox-others" />
+									<label for="wt-cli-checkbox-others" class="cli-slider" data-cli-enable="Ativado" data-cli-disable="Desativado"><span class="wt-cli-sr-only">Others</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="others">
+								<div class="wt-cli-cookie-description">
+									Other uncategorized cookies are those that are being analyzed and have not been classified into a category as yet.
+								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SALVAR E ACEITAR</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><link data-minify="1" rel='stylesheet' id='cookie-law-info-table-css' href='https://static.planejativo.com/wp-content/cache/background-css/static.planejativo.com/wp-content/cache/min/1/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-table.css?ver=1787749678&wpr_t=1790084908' media='all' />
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/planejativo.com","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script id="rocket_lazyload_css-js-extra">
+var rocket_lazyload_css_data = {"threshold":"300"};
+</script>
+<script id="rocket_lazyload_css-js-after">
+!function o(n,c,a){function s(t,e){if(!c[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(u)return u(t,!0);throw(r=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",r}r=c[t]={exports:{}},n[t][0].call(r.exports,function(e){return s(n[t][1][e]||e)},r,r.exports,o,n,c,a)}return c[t].exports}for(var u="function"==typeof require&&require,e=0;e<a.length;e++)s(a[e]);return s}({1:[function(e,t,r){"use strict";!function(){const r="undefined"==typeof rocket_pairs?[]:rocket_pairs,e="undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs;e.map(t=>{var e=t.selector;const r=document.querySelectorAll(e);r.forEach(e=>{e.setAttribute("data-rocket-lazy-bg-".concat(t.hash),"excluded")})});const o=document.querySelector("#wpr-lazyload-bg");var t=rocket_lazyload_css_data.threshold||300;const n=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting){const e=r.filter(e=>t.target.matches(e.selector));e.map(t=>{t&&(o.innerHTML+=t.style,t.elements.forEach(e=>{n.unobserve(e),e.setAttribute("data-rocket-lazy-bg-".concat(t.hash),"loaded")}))})}})},{rootMargin:t+"px"});function c(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&r.forEach(t=>{try{const e=document.querySelectorAll(t.selector);e.forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-".concat(t.hash))&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-".concat(t.hash))&&(n.observe(e),(t.elements||(t.elements=[])).push(e))})}catch(e){console.error(e)}})}c();const a=function(){const o=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType){const r=new o(t);return r.observe(e,{attributes:!0,childList:!0,subtree:!0}),r}}}();t=document.querySelector("body"),a(t,c)}()},{}]},{},[1]);
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.0.1" id="smartmenus-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.17.1" id="elementor-pro-webpack-runtime-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.18.3" id="elementor-webpack-runtime-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.18.3" id="elementor-frontend-modules-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-includes/js/dist/hooks.min.js?ver=2810c76e705dd1a53b18" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/planejativo.com\/wp-admin\/admin-ajax.php","nonce":"d7dde93c98","urls":{"assets":"https:\/\/planejativo.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/planejativo.com\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"pt_BR","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/planejativo.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.17.1" id="elementor-pro-frontend-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id="elementor-waypoints-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" defer></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Compartilhar no Facebook","shareOnTwitter":"Compartilhar no Twitter","pinIt":"Fixar","download":"Baixar","downloadImage":"Baixar imagem","fullscreen":"Tela cheia","zoom":"Zoom","share":"Compartilhar","playVideo":"Reproduzir v\u00eddeo","previous":"Anterior","next":"Pr\u00f3ximo","close":"Fechar","a11yCarouselWrapperAriaLabel":"Carrossel | Rolagem horizontal: Setas para esquerda e direita","a11yCarouselPrevSlideMessage":"Slide anterior","a11yCarouselNextSlideMessage":"Pr\u00f3ximo slide","a11yCarouselFirstSlideMessage":"Este \u00e9 o primeiro slide","a11yCarouselLastSlideMessage":"Este \u00e9 o \u00faltimo slide","a11yCarouselPaginationBulletMessage":"Ir para o slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Retrato em dispositivos m\u00f3veis","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Paisagem em dispositivos m\u00f3veis","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Retrato em tablet","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Paisagem em tablet","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Notebook","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Tela ampla (widescreen)","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.18.3","is_static":false,"experimentalFeatures":{"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"e_font_icon_svg":true,"container":true,"block_editor_assets_optimize":true,"e_image_loading_optimization":true,"e_global_styleguide":true,"notes":true},"urls":{"assets":"https:\/\/planejativo.com\/wp-content\/plugins\/elementor\/assets\/"},"swiperClass":"swiper-container","settings":{"page":[],"editorPreferences":[]},"kit":{"body_background_background":"classic","active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":11941,"title":"Como%20aumentar%20a%20produtividade%20nos%20estudos%20-%20Planejativo","excerpt":"Aumentar a produtividade nos estudos para o ENEM pode ser um grande desafio, n\u00e3o \u00e9 mesmo? Mas nada est\u00e1 perdido: juntamos aqui dicas para te ajudar no seu foco e concentra\u00e7\u00e3o.","featuredImage":"https:\/\/planejativo.com\/wp-content\/uploads\/2023\/04\/Design-sem-nome4-1024x576.png"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.18.3" id="elementor-frontend-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.17.1" id="pro-elements-handlers-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://static.planejativo.com/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.17.1" id="e-sticky-js" defer></script>
+<script type="rocketlazyloadscript">
+    (function(w,d,t,u,n,a,m){w['MauticTrackingObject']=n;
+        w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)},a=d.createElement(t),
+        m=d.getElementsByTagName(t)[0];a.async=1;a.src=u;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://mkt.planejativo.com/mtc.js','mt');
+    mt('send', 'pageview');
+</script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://static.planejativo.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt){var t='<img loading="lazy" loading="lazy" data-lazy-src="https://i.ytimg.com/vi_webp/ID/hqdefault.webp" alt="" width="480" height="360"><noscript><img loading="lazy" loading="lazy" src="https://i.ytimg.com/vi_webp/ID/hqdefault.webp" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"6e2faa15e65c4439a600266b62563dc5","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
+<!--
+Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com
+
+Recuperados 2939 objetos (977 KB) do Redis usando PhpRedis (v6.1.0).
+-->
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1790095708 -->
