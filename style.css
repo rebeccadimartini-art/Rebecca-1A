@@ -19,6 +19,9 @@
 .tema-escuro a {
   color: var(--cor-secundaria);
 }
+.tema-escuro p {
+  color: var(--cor-texto);
+}
 header { 
   backgraund-color: #e1d1c6
   color: #795138;
