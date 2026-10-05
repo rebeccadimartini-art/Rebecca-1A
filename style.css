@@ -6,6 +6,12 @@
 --cor-contraste: #f3eef7
 --cor-botao: #f9f9f9;
 
+--fonte-texto: 'Segoe UI', sans-serif;
+}
+*{
+  transition: background-color 0.3s ease;
+}
+
 }
 
 :tema-escuro{
