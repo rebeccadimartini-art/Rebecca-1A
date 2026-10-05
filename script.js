@@ -15,4 +15,9 @@ cosnt btnTemaEscuro " document.querySelector(".btn-tema-escuro");
 btnTemaEscuro.addEventListemer("click", mudarTema);
 function mudarTema(){
   const corpoPagina = document.body;
-  if (corpo
+  if (corpoPagina.clasiList.contains("tema-esucro")){
+  corpoPagina.clasList.remove("tema-escuro");
+  } else {
+    corpoPagina.clasList.add("tema-escuro");
+  }
+}
