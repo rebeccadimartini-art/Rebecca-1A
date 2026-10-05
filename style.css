@@ -29,6 +29,10 @@
   color:#614051;
 }
 btn-tema-escuro{
+
+  backgound-color: var(--cor-secundaria);
+}
+
   position: fixed;
   bottom: 16px;
   right: 16px;
