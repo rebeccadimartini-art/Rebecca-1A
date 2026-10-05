@@ -22,22 +22,53 @@
 .tema-escuro p {
   color: var(--cor-texto);
 }
-header { 
-  backgraund-color: #e1d1c6
-  color: #795138;
-  tex-aling:center;
-  max-whidth: 800px;
+.tema-escuro header p{ 
+  color: var(--cor-texto-escuro,#614051 );
+}
+.btn-tema-escuro h1{
+  color:#614051;
+}
+btn-tema-escuro{
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  font-ize: 32px;
+  backgraund-color: var(--cor-primaria);
+  boder-radius: 50%;
+
+}
+.tema-escuro .btn-tema-escuro{
+  background-color: var(--cor-secundaria);
+}
+.btn-tema-escuro{
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  font-size: 32px;
+  padding: 12px;
+  background-color: var(--cor-primaria);
+  boder-raius: 50%;
+
+}
+
+header {
+  backgraund-color: var(--cor-primaria);
+  color: var(--cor-contraste);
+  text-align: center;
   margin: 0 auto;
-  boder: 5px solid #FFE7BA;
-  padding: 16px;
+  padding: 16px
 }
 
 main{
-  backgraund-color: #FFDAB9;
-  color: #FFEFDB;
-  text-align: center;
-  max-whidth:800px;
+  backgraund-color: var(--cor-fundo);
+  color: var(--cor-texto);
   margin: 0 auto;
+  padding: 16px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  
 }
 article{
   display: flex;
